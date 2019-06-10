@@ -5,12 +5,12 @@ $importfile = "$startdir\vm-custom-attributes-adjustedforimport.csv"
 $NewAttributes = Import-Csv $importfile -encoding default
  
 ForEach ($vm in $NewAttributes){   
-   Write-Host (get-date -uformat %I:%M:%S) "$vm ���b����..." -ForegroundColor Green
+   Write-Host (get-date -uformat %I:%M:%S) "$vm 正在執行..." -ForegroundColor Green
    Set-Annotation -Entity (get-vm $vm.VM) -CustomAttribute $vm."AP" -Value $vm."AP Value" -confirm:$false
    Set-Annotation -Entity (get-vm $vm.VM) -CustomAttribute $vm."SP" -Value $vm."SP Value" -confirm:$false
-   Set-Annotation -Entity (get-vm $vm.VM) -CustomAttribute $vm."業�?系統?�稱" -Value $vm."業�?系統?�稱 Value" -confirm:$false
-   Set-Annotation -Entity (get-vm $vm.VM) -CustomAttribute $vm."業�?系統編�?" -Value $vm."業�?系統編�? Value" -confirm:$false
-   Set-Annotation -Entity (get-vm $vm.VM) -CustomAttribute $vm."業�?系統說�?" -Value $vm."業�?系統說�? Value" -confirm:$false
+   Set-Annotation -Entity (get-vm $vm.VM) -CustomAttribute $vm."業務系統名稱" -Value $vm."業務系統名稱 Value" -confirm:$false
+   Set-Annotation -Entity (get-vm $vm.VM) -CustomAttribute $vm."業務系統編號" -Value $vm."業務系統編號 Value" -confirm:$false
+   Set-Annotation -Entity (get-vm $vm.VM) -CustomAttribute $vm."業務系統說明" -Value $vm."業務系統說明 Value" -confirm:$false
 }
 
 #Original Script
